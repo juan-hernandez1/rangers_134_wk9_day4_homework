@@ -37,15 +37,27 @@ const columns: GridColDef[] = [
    ) 
 },
   {
-    field: 'name',
-    headerName: 'Name',
+    field: 'year',
+    headerName: 'Year',
+    width: 150,
+    editable: true,
+  },
+  {
+    field: 'make',
+    headerName: 'Make',
+    width: 150,
+    editable: true,
+  },
+  {
+    field: 'model',
+    headerName: 'Model',
     width: 150,
     editable: true,
   },
   {
     field: 'description',
     headerName: 'Description',
-    width: 300,
+    width: 150,
     editable: true,
   },
   {
@@ -137,7 +149,7 @@ const UpdateQuantity = (props: UpdateProps) => {
 
         const response = await serverCalls.updateData(orderId, updateData)
         if (response.status === 200){
-            setMessage('Successfully updated item in your Order')
+            setMessage('Successfully updated vehicle in your Order')
             setMessageType('success')
             setOpen(true)
             setTimeout(()=>{window.location.reload()}, 2000)
@@ -222,7 +234,7 @@ export const Order = () => {
         const response = await serverCalls.deleteOrder(order_id, deleteData)
 
         if (response.status === 200) {
-            setMessage('Successfully deleted item from order')
+            setMessage('Successfully deleted vehicle from order')
             setMessageType('success')
             setOpen(true)
             setTimeout(()=>window.location.reload(), 2000)

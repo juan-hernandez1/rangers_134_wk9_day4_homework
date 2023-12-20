@@ -160,14 +160,14 @@ const checkout = async () => {
     if (response.status === 200){ // 200 is a good status code
         remove(cartRef) // this is removing our whole entire cartRef aka emptying our cart
         .then(() => {
-            console.log("Cart cleared successfully")
+            console.log("Garage cleared successfully")
             setMessage('Successfully Checked Out')
             setMessageType('success')
             setOpen(true)
             setTimeout(()=>{window.location.reload()}, 2000)
         })
         .catch((error) => {
-            console.log("Error clearing cart: " + error.message)
+            console.log("Error clearing garage: " + error.message)
             setMessage(error.message)
             setMessageType('error')
             setOpen(true)
@@ -205,7 +205,7 @@ const checkout = async () => {
                                     component = 'img'
                                     sx = {shopStyles.cardMedia}
                                     image = {cart.image}
-                                    alt = {cart.name}
+                                    alt = '{cart.year} {cart.make} {cart.model}'
                                 />
                                 <CardContent>
                                     <Stack direction = 'column' justifyContent='space-between' alignItems = 'center'>
@@ -213,7 +213,7 @@ const checkout = async () => {
                                             <AccordionSummary 
                                                 expandIcon={<InfoIcon sx={{color: 'whitesmoke'}}/>}
                                             >
-                                                <Typography>{cart.name}</Typography>
+                                                <Typography>{cart.year} {cart.make} {cart.model}</Typography>
                                             </AccordionSummary>
                                             <AccordionDetails>
                                                 <Typography>{cart.description}</Typography>

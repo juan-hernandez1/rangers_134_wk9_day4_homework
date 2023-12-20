@@ -138,7 +138,7 @@ const AddToCart = (cart: CartProps ) => {
         // takes in two arguments, 1st is where we are pushing, 2nd is what we are pushing
         push(cartRef, myCart)
         .then((_newCartRef) => {
-            setMessage(`Successfully added vehicle ${myCart.name} to Garage`)
+            setMessage(`Successfully added vehicle ${myCart.year} ${myCart.make} ${myCart.model} to Garage`)
             setMessageType('success')
             setOpen(true)
         })
@@ -156,7 +156,7 @@ const AddToCart = (cart: CartProps ) => {
         <Box>
             <form onSubmit = {handleSubmit(onSubmit)}>
                 <Box>
-                    <label htmlFor='quantity'>How many {myCart.name}'s would you like to add?</label>
+                    <label htmlFor='quantity'>How many {myCart.year} {myCart.make} {myCart.model}'s would you like to add?</label>
                     <InputText {...register('quantity')} name='quantity' placeholder='Quantity Here' />
                 </Box>
                 <Button type='submit'>Submit</Button>
@@ -199,7 +199,7 @@ export const Shop = () => {
                                 component='img'
                                 sx={shopStyles.cardMedia}
                                 image={shop.image}
-                                alt={shop.name}
+                                alt='{shop.year} {shop.make} {shop.model}'
                             />
                             <CardContent>
                                 <Stack 
@@ -216,7 +216,7 @@ export const Shop = () => {
                                             <AccordionSummary 
                                                 expandIcon={<InfoIcon sx={{color: 'whitesmoke'}}/>}
                                             >
-                                                <Typography>{shop.name}</Typography>
+                                                <Typography>{shop.year} {shop.make} {shop.model}</Typography>
                                             </AccordionSummary>
                                             <AccordionDetails>
                                                 <Typography>{shop.description}</Typography>

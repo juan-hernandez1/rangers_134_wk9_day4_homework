@@ -9,12 +9,14 @@ import { serverCalls } from '../api'
 
 // WE are creating a custom hook to make API calls every time we go to the Shop page. 
 
-// creaating our interfaces for our shop data & return of our hook
+// creating our interfaces for our shop data & return of our hook
 
 export interface ShopProps {
     id: string,
-    name: string,
+    year: string,
     image: string,
+    make: string,
+    model: string,
     description: string,
     price: string, 
     prod_id: string,
@@ -58,7 +60,7 @@ interface GetOrderDataProps {
 }
 
 
-// create our custom hook that get's called automatically when we go to our Order page
+// create our custom hook that gets called automatically when we go to our Order page
 export const useGetOrder = (): GetOrderDataProps => {
     // setup some hooks
     const [ orderData, setShopData ] = useState<ShopProps[]>([])
